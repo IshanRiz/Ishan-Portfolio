@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ishan Rizwan | Market Research, Marketing Operations & Analytics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root{
+      --ink:#1a1208;
+      --ink-2:#24180f;
+      --cream:#f5f0e8;
+      --warm:#fbf7f0;
+      --accent:#c8420a;
+      --accent-2:#d95a1d;
+      --gold:#d4a843;
+      --muted:#7a6e5f;
+      --light-line:#e2d9c8;
+      --glass:rgba(255,255,255,0.48);
+      --shadow:0 18px 50px rgba(25,18,8,0.08);
+      --shadow-strong:0 24px 70px rgba(25,18,8,0.12);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'DM Sans',sans-serif;
+      background:linear-gradient(180deg,var(--warm) 0%, #f8f4ed 100%);
+      color:var(--ink);
+      line-height:1.7;
+      overflow-x:hidden;
+    }
+    img, video{max-width:100%;display:block}
+    a{color:inherit}
+    ::selection{background:rgba(200,66,10,.16)}
+    ::-webkit-scrollbar{width:8px}
+    ::-webkit-scrollbar-track{background:#efe7da}
+    ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:999px}
+
+    /* NAV */
+    nav{
+      position:fixed; inset:0 0 auto 0; z-index:1000;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1rem 4rem;
+      background:rgba(245,240,232,.82);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(226,217,200,.8);
+      transition:all .25s ease;
+    }
+    nav.scrolled{
+      background:rgba(245,240,232,.95);
+      box-shadow:0 8px 30px rgba(25,18,8,.06);
+      padding:.8rem 4rem;
+    }
+    .nav-logo{
+      font-family:'Playfair Display',serif;
+      font-weight:700;
+      font-size:1.25rem;
+      text-decoration:none;
+      letter-spacing:.01em;
+    }
+    .nav-logo span{color:var(--accent)}
+    .nav-links{
+      list-style:none; display:flex; align-items:center; gap:2rem;
+    }
+    .nav-links a{
+      text-decoration:none;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.78rem;
+      font-weight:600;
+      transition:color .2s ease;
+      position:relative;
+    }
+    .nav-links a::after{
+      content:'';
+      position:absolute;
+      left:0; bottom:-6px;
+      width:0; height:1px;
+      background:var(--accent);
+      transition:width .2s ease;
+    }
+    .nav-links a:hover{color:var(--accent)}
+    .nav-links a:hover::after{width:100%}
+    .hamburger{display:none; flex-direction:column; gap:5px; cursor:pointer}
+    .hamburger span{width:24px;height:2px;background:var(--ink);display:block;border-radius:999px}
+
+    /* HERO */
+    #hero{
+      min-height:100vh;
+      padding:7.5rem 4rem 3.5rem;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:0;
+      position:relative;
+    }
+    #hero::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(200,66,10,.08), transparent 25%),
+        radial-gradient(circle at 90% 5%, rgba(212,168,67,.08), transparent 20%),
+        linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0));
+      pointer-events:none;
+    }
+    .hero-left{
+      background:linear-gradient(135deg, #20150d 0%, #2b1b10 55%, #1b120b 100%);
+      color:#f7f0e7;
+      border-radius:32px 0 0 32px;
+      padding:4.5rem 4.5rem 4rem;
+      position:relative;
+      overflow:hidden;
+      box-shadow:var(--shadow-strong);
+    }
+    .hero-left::before{
+      content:'';
+      position:absolute;
+      width:540px; height:540px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(212,168,67,.11), transparent 70%);
+      top:-140px; right:-140px;
+    }
+    .hero-left::after{
+      content:'';
+      position:absolute;
+      width:220px; height:220px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(200,66,10,.10), transparent 70%);
+      bottom:-80px; left:-80px;
+    }
+    .hero-tag{
+      display:inline-flex;
+      align-items:center;
+      gap:.6rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:.72rem;
+      color:#e0b56a;
+      border:1px solid rgba(212,168,67,.32);
+      background:rgba(255,255,255,.03);
+      padding:.55rem 1rem;
+      border-radius:999px;
+      margin-bottom:1.8rem;
+      position:relative;
+      z-index:1;
+    }
+    .hero-name{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(3rem, 5.4vw, 5.2rem);
+      line-height:.95;
+      letter-spacing:-.03em;
+      margin-bottom:1.25rem;
+      position:relative;
+      z-index:1;
+    }
+    .hero-name em{
+      font-style:italic;
+      color:#d78a5b;
+    }
+    .hero-subtitle{
+      max-width:560px;
+      color:rgba(247,240,231,.72);
+      font-size:1.05rem;
+      line-height:1.9;
+      margin-bottom:2rem;
+      position:relative;
+      z-index:1;
+    }
+    .hero-roles{
+      display:flex; flex-wrap:wrap; gap:.7rem;
+      margin-bottom:2.4rem; position:relative; z-index:1;
+    }
+    .role-tag{
+      display:inline-flex; align-items:center; gap:.45rem;
+      padding:.55rem .9rem;
+      border-radius:999px;
+      border:1px solid rgba(212,168,67,.25);
+      background:rgba(255,255,255,.04);
+      color:#f2d09a;
+      font-size:.82rem;
+      font-weight:600;
+    }
+    .hero-actions{
+      display:flex; flex-wrap:wrap; gap:1rem;
+      position:relative; z-index:1;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:.7rem;
+      text-decoration:none;
+      padding:.95rem 1.5rem;
+      border-radius:999px;
+      font-weight:700;
+      font-size:.92rem;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      color:#fff;
+      box-shadow:0 14px 28px rgba(200,66,10,.24);
+    }
+    .btn-primary:hover{box-shadow:0 18px 34px rgba(200,66,10,.28)}
+    .btn-outline{
+      border:1.5px solid rgba(247,240,231,.22);
+      color:#f7f0e7;
+      background:rgba(255,255,255,.02);
+    }
+    .btn-outline:hover{border-color:#f7f0e7;background:rgba(255,255,255,.06)}
+    .hero-right{
+      background:linear-gradient(180deg, #f7f1e8 0%, #fcf8f2 100%);
+      border-radius:0 32px 32px 0;
+      border:1px solid rgba(226,217,200,.9);
+      border-left:none;
+      padding:4.5rem 3rem 3.5rem;
+      box-shadow:var(--shadow-strong);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-right::before{
+      content:'';
+      position:absolute;
+      inset:auto -80px -80px auto;
+      width:240px; height:240px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(200,66,10,.10), transparent 70%);
+      pointer-events:none;
+    }
+    .avatar-wrap{
+      display:flex; justify-content:center; margin-bottom:1.7rem;
+    }
+    .avatar{
+      width:170px; height:170px;
+      border-radius:50%;
+      border:4px solid var(--accent);
+      box-shadow:0 14px 40px rgba(25,18,8,.1);
+      display:flex; align-items:center; justify-content:center;
+      background:
+        radial-gradient(circle at 35% 30%, rgba(212,168,67,.22), transparent 40%),
+        linear-gradient(135deg, #2a1a10, #4b311b);
+      color:#f6ede3;
+      font-family:'Playfair Display',serif;
+      font-size:3.6rem;
+      font-weight:900;
+      letter-spacing:-.04em;
+    }
+    .glance-label{
+      display:flex;
+      align-items:center;
+      gap:.9rem;
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:.25em;
+      font-size:.72rem;
+      font-weight:700;
+      margin: 0 0 1.5rem;
+      white-space:nowrap;
+    }
+    .glance-label::after{
+      content:'';
+      flex:1;
+      height:1px;
+      background:linear-gradient(90deg, var(--light-line), transparent);
+    }
+    .stats-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1rem;
+    }
+    .stat-card{
+      background:#fff;
+      border:1px solid var(--light-line);
+      padding:1.4rem 1.25rem;
+      min-height:128px;
+      box-shadow:0 10px 30px rgba(25,18,8,.05);
+    }
+    .stat-num{
+      font-family:'Playfair Display',serif;
+      font-size:2.1rem;
+      line-height:1;
+      font-weight:900;
+      color:var(--accent);
+      display:block;
+      margin-bottom:.35rem;
+    }
+    .stat-label{
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:.75rem;
+      font-weight:700;
+    }
+    .hero-note{
+      margin-top:1.5rem;
+      padding:1.1rem 1.2rem;
+      border:1px solid var(--light-line);
+      background:var(--warm);
+      color:#2a2017;
+      font-size:.95rem;
+      line-height:1.8;
+    }
+    .hero-note strong{color:var(--accent)}
+
+    /* SECTION */
+    section{padding:6rem 4rem}
+    .section-inner{max-width:1180px; margin:0 auto}
+    .section-label{
+      display:flex; align-items:center; gap:.9rem;
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:.24em;
+      font-size:.72rem;
+      font-weight:800;
+      margin-bottom:.9rem;
+    }
+    .section-label::after{
+      content:'';
+      flex:1;
+      height:1px;
+      background:linear-gradient(90deg, var(--light-line), transparent);
+    }
+    .section-title{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.1rem, 4vw, 3.35rem);
+      line-height:1.07;
+      letter-spacing:-.03em;
+      max-width:700px;
+      margin-bottom:2.25rem;
+    }
+    .section-title span{color:var(--accent)}
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:2rem;
+      align-items:start;
+    }
+    .panel{
+      background:#fff;
+      border:1px solid var(--light-line);
+      box-shadow:var(--shadow);
+    }
+    .panel-dark{
+      background:linear-gradient(135deg, #23160d, #1a1208);
+      color:#f7f0e7;
+      border:none;
+    }
+    .card{
+      padding:2rem;
+      border:1px solid var(--light-line);
+      background:#fff;
+      box-shadow:var(--shadow);
+    }
+    .eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.72rem;
+      color:var(--accent);
+      font-weight:800;
+      margin-bottom:1rem;
+    }
+    .prose{
+      color:var(--muted);
+      font-size:1.02rem;
+      line-height:1.95;
+    }
+    .prose p + p{margin-top:1rem}
+    .chips{
+      display:flex; flex-wrap:wrap; gap:.7rem;
+      margin-top:1.5rem;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:.45rem;
+      padding:.5rem .9rem;
+      border:1px solid var(--light-line);
+      border-radius:999px;
+      background:var(--warm);
+      color:#4a3b2d;
+      font-size:.83rem;
+      font-weight:700;
+    }
+
+    /* ABOUT */
+    #about{background:linear-gradient(180deg, #f7f1e8 0%, #fbf8f2 100%)}
+    .quote-card{
+      padding:2.2rem;
+      background:linear-gradient(135deg, #2b1b10, #1a1208);
+      color:#f7f0e7;
+      min-height:330px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .quote-card::before{
+      content:'“';
+      position:absolute;
+      top:-18px; right:20px;
+      font-family:'Playfair Display',serif;
+      font-size:10rem;
+      line-height:1;
+      color:rgba(212,168,67,.12);
+    }
+    .quote{
+      font-family:'Playfair Display',serif;
+      font-size:1.55rem;
+      line-height:1.45;
+      font-style:italic;
+      margin-bottom:1.2rem;
+      position:relative; z-index:1;
+    }
+    .quote-by{
+      color:#e8c36f;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.72rem;
+      font-weight:800;
+      position:relative; z-index:1;
+    }
+    .mini-stats{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:1px;
+      margin-top:1rem;
+      background:var(--light-line);
+    }
+    .mini-stats .mini{
+      background:#fff;
+      padding:1.4rem 1.3rem;
+    }
+    .mini .k{
+      font-family:'Playfair Display',serif;
+      color:var(--accent);
+      font-size:1.7rem;
+      font-weight:900;
+      line-height:1;
+      margin-bottom:.3rem;
+    }
+    .mini .v{
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:.72rem;
+      font-weight:700;
+    }
+
+    /* EDUCATION */
+    #education{background:#fff}
+    .timeline{
+      position:relative;
+      padding-left:2rem;
+      margin-top:.8rem;
+    }
+    .timeline::before{
+      content:'';
+      position:absolute;
+      left:8px; top:0; bottom:0;
+      width:1px;
+      background:linear-gradient(to bottom, var(--accent), rgba(200,66,10,.12));
+    }
+    .timeline-item{
+      position:relative;
+      padding-left:2rem;
+      margin-bottom:2rem;
+    }
+    .timeline-dot{
+      position:absolute;
+      left:-.45rem; top:.45rem;
+      width:14px; height:14px;
+      border-radius:50%;
+      background:var(--accent);
+      border:3px solid #fff;
+      box-shadow:0 0 0 4px rgba(200,66,10,.1);
+    }
+    .timeline-date{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      background:rgba(200,66,10,.08);
+      color:var(--accent);
+      border:1px solid rgba(200,66,10,.14);
+      border-radius:999px;
+      padding:.35rem .7rem;
+      font-size:.75rem;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:.9rem;
+    }
+    .timeline-title{
+      font-family:'Playfair Display',serif;
+      font-size:1.42rem;
+      line-height:1.25;
+      margin-bottom:.35rem;
+    }
+    .timeline-org{
+      color:var(--muted);
+      font-weight:700;
+      margin-bottom:.65rem;
+    }
+    .timeline-detail{
+      color:var(--muted);
+      line-height:1.85;
+      font-size:.95rem;
+    }
+    .course-tags{
+      display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem;
+    }
+    .course-tag{
+      padding:.45rem .75rem;
+      border-radius:999px;
+      border:1px solid var(--light-line);
+      background:var(--warm);
+      color:#5c4a3c;
+      font-size:.8rem;
+      font-weight:700;
+    }
+
+    /* EXPERIENCE */
+    #experience{background:linear-gradient(180deg, #faf6ef 0%, #f6f0e7 100%)}
+    .exp-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:1.5rem;
+    }
+    .exp-card{
+      position:relative;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid var(--light-line);
+      box-shadow:var(--shadow);
+      padding:2rem;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .exp-card:hover{transform:translateY(-4px); box-shadow:var(--shadow-strong)}
+    .exp-card::before{
+      content:'';
+      position:absolute; inset:0 auto auto 0;
+      width:100%; height:3px;
+      background:linear-gradient(90deg, var(--accent), var(--gold));
+    }
+    .exp-head{
+      display:flex; align-items:center; gap:1rem;
+      margin-bottom:1rem;
+    }
+    .exp-icon{
+      width:52px; height:52px; border-radius:14px;
+      display:flex; align-items:center; justify-content:center;
+      background:linear-gradient(135deg, rgba(200,66,10,.12), rgba(212,168,67,.10));
+      border:1px solid rgba(200,66,10,.16);
+      color:var(--accent);
+      font-size:1.2rem;
+      flex-shrink:0;
+    }
+    .exp-company{
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.74rem;
+      color:var(--accent);
+      font-weight:800;
+      margin-bottom:.22rem;
+    }
+    .exp-role{
+      font-family:'Playfair Display',serif;
+      font-size:1.35rem;
+      line-height:1.2;
+      margin-bottom:.25rem;
+    }
+    .exp-period{
+      color:var(--muted);
+      font-size:.85rem;
+      font-weight:700;
+    }
+    .bullets{
+      list-style:none; margin-top:1rem;
+    }
+    .bullets li{
+      position:relative;
+      padding:.4rem 0 .4rem 1.1rem;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:.92rem;
+    }
+    .bullets li::before{
+      content:'—';
+      position:absolute; left:0; top:.4rem;
+      color:var(--accent);
+      font-weight:900;
+    }
+
+    /* WORK */
+    #work{background:#fff}
+    .work-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:1.5rem;
+    }
+    .work-card{
+      background:#fff;
+      border:1px solid var(--light-line);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .work-card:hover{transform:translateY(-4px); box-shadow:var(--shadow-strong)}
+    .work-media{
+      position:relative;
+      background:linear-gradient(135deg, #2a1a10, #5c3d24);
+      border-bottom:1px solid var(--light-line);
+    }
+    .work-media img,
+    .work-media video{
+      width:100%;
+      height:420px;
+      object-fit:cover;
+      display:block;
+      background:#111;
+    }
+    .work-media video{
+      object-fit:cover;
+    }
+    .work-badge{
+      position:absolute;
+      left:1rem; top:1rem;
+      z-index:2;
+      background:rgba(255,255,255,.9);
+      color:var(--accent);
+      border:1px solid var(--light-line);
+      padding:.4rem .7rem;
+      border-radius:999px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.68rem;
+      font-weight:900;
+      box-shadow:0 8px 24px rgba(25,18,8,.08);
+    }
+    .zoom-btn{
+      position:absolute;
+      right:1rem; top:1rem;
+      z-index:2;
+      border:none;
+      border-radius:999px;
+      padding:.55rem .8rem;
+      background:rgba(24,18,12,.9);
+      color:#fff;
+      font-weight:800;
+      font-size:.72rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      cursor:pointer;
+      backdrop-filter:blur(8px);
+    }
+    .work-body{
+      padding:1.5rem 1.5rem 1.65rem;
+    }
+    .work-kicker{
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.7rem;
+      color:var(--accent);
+      font-weight:900;
+      margin-bottom:.65rem;
+    }
+    .work-title{
+      font-family:'Playfair Display',serif;
+      font-size:1.45rem;
+      line-height:1.2;
+      margin-bottom:.55rem;
+    }
+    .work-desc{
+      color:var(--muted);
+      font-size:.94rem;
+      line-height:1.8;
+    }
+    .work-meta{
+      display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem;
+    }
+
+    /* SKILLS */
+    #skills{background:linear-gradient(180deg, #faf6ef 0%, #f5efe7 100%)}
+    .skills-layout{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:1.5rem;
+    }
+    .skill-group{
+      background:#fff;
+      border:1px solid var(--light-line);
+      box-shadow:var(--shadow);
+      padding:2rem;
+      margin-bottom:1.25rem;
+    }
+    .skill-group-title{
+      display:flex; align-items:center; gap:.6rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.72rem;
+      font-weight:900;
+      color:var(--accent);
+      margin-bottom:1rem;
+    }
+    .skill-list{
+      list-style:none;
+      display:grid;
+      gap:.65rem;
+    }
+    .skill-list li{
+      display:flex; align-items:flex-start; gap:.7rem;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:.95rem;
+      padding-bottom:.55rem;
+      border-bottom:1px solid rgba(226,217,200,.55);
+    }
+    .skill-list li:last-child{border-bottom:none;padding-bottom:0}
+    .skill-list li::before{
+      content:'→';
+      color:var(--accent);
+      font-weight:900;
+      flex-shrink:0;
+    }
+    .tool-tags{
+      display:flex; flex-wrap:wrap; gap:.55rem;
+      margin-top:.2rem;
+    }
+    .tool-tag{
+      padding:.5rem .78rem;
+      border-radius:999px;
+      background:var(--warm);
+      border:1px solid var(--light-line);
+      color:#5f4d3d;
+      font-size:.8rem;
+      font-weight:700;
+    }
+    .cert-box{
+      background:linear-gradient(135deg, #26170f, #1a1208);
+      color:#f8efe5;
+      padding:2rem;
+      min-height:100%;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(212,168,67,.16);
+    }
+    .cert-box h3{
+      font-family:'Playfair Display',serif;
+      font-size:1.65rem;
+      margin-bottom:1rem;
+    }
+    .cert-box p{
+      color:rgba(248,239,229,.74);
+      line-height:1.85;
+      font-size:.96rem;
+    }
+    .cert-list{
+      margin-top:1.2rem;
+      display:grid;
+      gap:.8rem;
+    }
+    .cert-item{
+      display:flex;
+      gap:.8rem;
+      align-items:flex-start;
+      padding:1rem 1rem;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.1);
+    }
+    .cert-item i{
+      color:#e7bd62;
+      margin-top:.15rem;
+    }
+
+    /* RECOMMENDATION */
+    #recommendation{background:#fff}
+    .rec-wrap{
+      display:grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap:1.5rem;
+      align-items:stretch;
+    }
+    .rec-hero{
+      background:linear-gradient(135deg, #2a1a10, #1a1208);
+      color:#f8efe5;
+      padding:2.2rem;
+      position:relative;
+      overflow:hidden;
+    }
+    .rec-hero::before{
+      content:'';
+      position:absolute;
+      width:280px; height:280px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(212,168,67,.12), transparent 70%);
+      right:-90px; bottom:-120px;
+    }
+    .rec-hero .eyebrow{color:#e6bc61}
+    .rec-text{
+      font-family:'Playfair Display',serif;
+      font-size:1.5rem;
+      line-height:1.55;
+      font-style:italic;
+      position:relative;
+      z-index:1;
+    }
+    .rec-author{
+      margin-top:1.2rem;
+      color:#e6bc61;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.72rem;
+      font-weight:900;
+      position:relative;
+      z-index:1;
+    }
+    .rec-panel{
+      background:#fbf7f1;
+      border:1px solid var(--light-line);
+      box-shadow:var(--shadow);
+      padding:2rem;
+    }
+    .rec-panel h3{
+      font-family:'Playfair Display',serif;
+      font-size:1.8rem;
+      margin-bottom:.75rem;
+    }
+    .rec-panel p{
+      color:var(--muted);
+      line-height:1.9;
+      font-size:1rem;
+      margin-bottom:1.2rem;
+    }
+    .rec-panel .badge-line{
+      display:flex;
+      flex-wrap:wrap; gap:.55rem;
+    }
+
+    /* CONTACT */
+    #contact{background:linear-gradient(180deg, #1d140c 0%, #15100a 100%); color:#f8efe5}
+    #contact .section-title{color:#f8efe5}
+    #contact .section-label{color:#e6bc61}
+    #contact .section-label::after{background:linear-gradient(90deg, rgba(230,188,97,.65), transparent)}
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1.5rem;
+      align-items:start;
+    }
+    .contact-panel{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      padding:2rem;
+    }
+    .contact-panel h3{
+      font-family:'Playfair Display',serif;
+      font-size:1.8rem;
+      margin-bottom:1rem;
+    }
+    .contact-panel p{
+      color:rgba(248,239,229,.72);
+      line-height:1.9;
+      margin-bottom:1.5rem;
+    }
+    .contact-list{
+      display:grid;
+      gap:.85rem;
+    }
+    .contact-item{
+      display:flex;
+      align-items:center;
+      gap:1rem;
+      padding:1rem 1.1rem;
+      border:1px solid rgba(255,255,255,.1);
+      background:rgba(255,255,255,.04);
+      text-decoration:none;
+      color:#f8efe5;
+    }
+    .contact-icon{
+      width:42px; height:42px;
+      border-radius:12px;
+      display:flex; align-items:center; justify-content:center;
+      background:rgba(200,66,10,.16);
+      color:#e6bc61;
+      flex-shrink:0;
+    }
+    .contact-item small{
+      display:block;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:rgba(248,239,229,.5);
+      font-size:.68rem;
+      font-weight:900;
+      margin-bottom:.15rem;
+    }
+    .contact-item span{
+      font-size:.95rem;
+      font-weight:700;
+    }
+    .message-card{
+      background:linear-gradient(135deg, rgba(212,168,67,.10), rgba(200,66,10,.08));
+      border:1px solid rgba(212,168,67,.2);
+      padding:2rem;
+    }
+    .message-card h3{
+      font-family:'Playfair Display',serif;
+      font-size:1.45rem;
+      margin-bottom:.75rem;
+    }
+    .message-card p{
+      color:rgba(248,239,229,.74);
+      line-height:1.9;
+      margin-bottom:1.5rem;
+    }
+    .resume-links{
+      display:flex; flex-wrap:wrap; gap:1rem;
+    }
+    .btn-light{
+      background:#f6efe5;
+      color:#26170f;
+      border:1px solid #e0d2be;
+    }
+    .btn-light:hover{background:#fff}
+
+    footer{
+      padding:1.25rem 2rem;
+      text-align:center;
+      background:#0f0b07;
+      color:rgba(248,239,229,.35);
+      font-size:.78rem;
+      letter-spacing:.06em;
+    }
+
+    /* MODAL */
+    .modal{
+      position:fixed; inset:0; z-index:2000;
+      display:none;
+      align-items:center; justify-content:center;
+      background:rgba(14,10,6,.82);
+      backdrop-filter:blur(12px);
+      padding:1.25rem;
+    }
+    .modal.active{display:flex}
+    .modal-box{
+      width:min(1020px, 100%);
+      background:#fff;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 28px 90px rgba(0,0,0,.4);
+      position:relative;
+      overflow:hidden;
+    }
+    .modal-close{
+      position:absolute;
+      top:1rem; right:1rem;
+      width:42px; height:42px;
+      border:none;
+      border-radius:50%;
+      background:#20150d;
+      color:#fff;
+      font-size:1rem;
+      cursor:pointer;
+      z-index:2;
+    }
+    .modal-content{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      min-height:560px;
+    }
+    .modal-media{
+      background:#100b07;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .modal-media img,
+    .modal-media video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .modal-meta{
+      padding:2rem;
+      background:#fbf7f0;
+    }
+    .modal-meta .eyebrow{margin-top:.4rem}
+    .modal-meta h3{
+      font-family:'Playfair Display',serif;
+      font-size:1.8rem;
+      line-height:1.2;
+      margin-bottom:1rem;
+    }
+    .modal-meta p{
+      color:var(--muted);
+      line-height:1.9;
+      font-size:1rem;
+    }
+
+    /* REVEAL */
+    .reveal{
+      opacity:0;
+      transform:translateY(22px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible{opacity:1; transform:none}
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px){
+      #hero{grid-template-columns:1fr; gap:1rem}
+      .hero-left{border-radius:32px 32px 0 0}
+      .hero-right{border-radius:0 0 32px 32px; border-left:1px solid var(--light-line)}
+      .grid-2, .exp-grid, .work-grid, .skills-layout, .rec-wrap, .contact-grid, .modal-content{
+        grid-template-columns:1fr;
+      }
+      .modal-media{min-height:360px}
+    }
+    @media (max-width: 900px){
+      nav{padding:1rem 1.4rem}
+      nav.scrolled{padding:.8rem 1.4rem}
+      .nav-links{display:none}
+      .hamburger{display:flex}
+      .nav-links.open{
+        display:flex;
+        flex-direction:column;
+        position:fixed;
+        top:66px; left:0; right:0;
+        padding:1.25rem 1.4rem 1.5rem;
+        background:rgba(245,240,232,.98);
+        border-bottom:1px solid var(--light-line);
+        gap:1rem;
+      }
+      #hero, section{padding-left:1.1rem; padding-right:1.1rem}
+      #hero{padding-top:6.8rem}
+      .hero-left, .hero-right{padding:2rem}
+      .stats-grid{grid-template-columns:1fr 1fr}
+      .work-media img, .work-media video{height:340px}
+    }
+    @media (max-width: 640px){
+      .stats-grid{grid-template-columns:1fr}
+      .mini-stats{grid-template-columns:1fr}
+      .hero-name{font-size:clamp(2.6rem, 11vw, 4rem)}
+      .section-title{font-size:clamp(1.8rem, 8vw, 2.6rem)}
+      .work-media img, .work-media video{height:280px}
+      .avatar{width:145px;height:145px;font-size:3rem}
+      .contact-panel, .message-card, .quote-card, .rec-panel, .cert-box, .card, .skill-group{padding:1.35rem}
+    }
+  </style>
+</head>
+
+
+<body>
+
+<nav id="navbar">
+  <a class="nav-logo" href="#hero">Ishan<span>.</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#work">Creative Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#recommendation">Testimonial</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-tag"><i class="fa-solid fa-chart-line"></i> Market Research · Marketing Execution</div>
+    <h1 class="hero-name reveal visible">Hi, I’m<br><em>Ishan Rizwan</em></h1>
+    <p class="hero-subtitle reveal visible">
+      PGDM Marketing (Analytics) student with 1.5+ years of US-focused B2B SaaS experience across outbound lead generation, client outreach, market research support, and team leadership — plus freelance marketing work for Memoky Home.
+    </p>
+    <div class="hero-roles reveal visible">
+      <span class="role-tag"><i class="fa-solid fa-bullseye"></i> GTM Execution</span>
+      <span class="role-tag"><i class="fa-solid fa-magnifying-glass-chart"></i> Market Research</span>
+      <span class="role-tag"><i class="fa-solid fa-pen-ruler"></i> Creative Marketing</span>
+      <span class="role-tag"><i class="fa-solid fa-layer-group"></i> Operations</span>
+    </div>
+    <div class="hero-actions reveal visible">
+      <a class="btn btn-primary" href="#work"><i class="fa-solid fa-briefcase"></i> View Creative Work</a>
+      <a class="btn btn-outline" href="Ishan Rizwan MRA Resume.pdf" target="_blank" download><i class="fa-solid fa-download"></i> Download Resume</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="avatar-wrap reveal visible">
+      <div class="avatar">IR</div>
+    </div>
+
+    <div class="glance-label reveal visible">At a Glance</div>
+
+    <div class="stats-grid reveal visible">
+      <div class="stat-card">
+        <span class="stat-num">1.5+</span>
+        <div class="stat-label">Years of B2B SaaS Experience</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">6 Mo</span>
+        <div class="stat-label">Freelance Marketing at Memoky</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">2</span>
+        <div class="stat-label">ValleyPoint Roles</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">US</span>
+        <div class="stat-label">Market Exposure</div>
+      </div>
+    </div>
+
+    <div class="hero-note reveal visible">
+      Strong at translating market signals into <strong>actionable GTM strategy</strong>, creating marketing assets, and supporting leadership with clear reporting and presentations.
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="section-inner">
+    <div class="section-label reveal">Creative Work</div>
+    <h2 class="section-title reveal">Memoky Home client work — <span>posters, ad creatives, email marketing,</span> and reels shown directly on the page.</h2>
+
+    <div class="work-grid">
+      <article class="work-card reveal">
+        <div class="work-media">
+          <div class="work-badge">Instagram Post</div>
+          <button class="zoom-btn" onclick="openMedia('image','n.png','Memoky Home Instagram Post','A promotional Instagram visual designed for Memoky Home to support furniture storytelling and a premium brand feel.')">Zoom</button>
+          <img src="n.png" alt="Memoky Home Instagram post creative" onclick="openMedia('image','n.png','Memoky Home Instagram Post','A promotional Instagram visual designed for Memoky Home to support furniture storytelling and a premium brand feel.')">
+        </div>
+        <div class="work-body">
+          <div class="work-kicker">Memoky Home · Client: Jacob</div>
+          <h3 class="work-title">Instagram Post / Story Visual</h3>
+          <p class="work-desc">Built for social visibility and brand presence, with a clean hierarchy and a premium visual tone that fits home décor marketing.</p>
+          <div class="work-meta">
+            <span class="chip">Social Content</span>
+            <span class="chip">Story Design</span>
+            <span class="chip">Brand Visuals</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-card reveal">
+        <div class="work-media">
+          <div class="work-badge">Email Marketing</div>
+          <button class="zoom-btn" onclick="openMedia('image','n2.png','Memoky Home Email Creative','An email marketing creative focused on discounts and offer communication with a clear conversion-friendly layout.')">Zoom</button>
+          <img src="n2.png" alt="Memoky Home email marketing creative" onclick="openMedia('image','n2.png','Memoky Home Email Creative','An email marketing creative focused on discounts and offer communication with a clear conversion-friendly layout.')">
+        </div>
+        <div class="work-body">
+          <div class="work-kicker">Memoky Home · Client: Jacob</div>
+          <h3 class="work-title">Email Discount Creative</h3>
+          <p class="work-desc">Designed to communicate discounts and promotions quickly, with a simple structure that is easy to scan on mobile or desktop.</p>
+          <div class="work-meta">
+            <span class="chip">Email Banner</span>
+            <span class="chip">Offer Messaging</span>
+            <span class="chip">Conversion Copy</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-card reveal">
+        <div class="work-media">
+          <div class="work-badge">Reel 01</div>
+          <button class="zoom-btn" onclick="openMedia('video','memoky_reel_1.mp4','Memoky Home Reel 01','Short-form reel built to showcase the brand in motion. Use the built-in player controls for audio.')">Play</button>
+          <video controls playsinline preload="auto" src="memoky_reel_1.mp4"></video>
+        </div>
+        <div class="work-body">
+          <div class="work-kicker">Memoky Home · Client: Jacob</div>
+          <h3 class="work-title">Instagram Reel — Brand Motion Cut</h3>
+          <p class="work-desc">Playable on the page with audio controls. Built for motion, quick hooks, and a stronger social-first brand impression.</p>
+          <div class="work-meta">
+            <span class="chip">Reel</span>
+            <span class="chip">Motion Content</span>
+            <span class="chip">Audio Ready</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-card reveal">
+        <div class="work-media">
+          <div class="work-badge">Reel 02</div>
+          <button class="zoom-btn" onclick="openMedia('video','memoky_reel_2.mp4','Memoky Home Reel 02','Second reel variant for the same brand, useful to show range in editing, pacing, and social storytelling.')">Play</button>
+          <video controls playsinline preload="auto" src="memoky_reel_2.mp4"></video>
+        </div>
+        <div class="work-body">
+          <div class="work-kicker">Memoky Home · Client: Jacob</div>
+          <h3 class="work-title">Instagram Reel — Alternate Edit</h3>
+          <p class="work-desc">A second short-form edit that helps recruiters see range in pacing, framing, and social-first storytelling choices.</p>
+          <div class="work-meta">
+            <span class="chip">Alternate Cut</span>
+            <span class="chip">Social Edit</span>
+            <span class="chip">Portfolio Sample</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label reveal">About Me</div>
+    <h2 class="section-title reveal">Research-driven growth, <span>marketing execution</span>, and creative work that can be shown.</h2>
+
+    <div class="grid-2">
+      <div class="card reveal">
+        <div class="eyebrow">Summary</div>
+        <div class="prose">
+          <p>I’m Ishan Rizwan, a PGDM Marketing (Analytics) student at ISBR Business School with experience across outbound lead generation, client outreach, market research support, and team leadership at ValleyPoint Technologies. My work has centered on the US market, where I built exposure to cold calling, email workflows, funnel optimization, and stakeholder coordination.</p>
+          <p>Alongside the research and analytics side of my profile, I also handled freelance marketing work for Memoky Home under Jacob, creating Instagram posts, story creatives, email campaign content, and reel edits. That mix lets recruiters see both the analytical and creative sides of my work.</p>
+          <p>I like roles where insights become action: mapping buyer personas, improving outreach performance, coordinating across teams, and turning data into cleaner decisions. I’m comfortable working at the intersection of strategy, execution, and presentation-ready communication.</p>
+        </div>
+        <div class="chips">
+          <span class="chip"><i class="fa-solid fa-location-dot"></i> Bengaluru, Karnataka</span>
+          <span class="chip"><i class="fa-solid fa-envelope"></i> ishanrizwan@gmail.com</span>
+          <span class="chip"><i class="fa-solid fa-phone"></i> 7305420108</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="quote-card reveal">
+          <div class="eyebrow">Working Style</div>
+          <div class="quote">I turn market signals into something practical — a better list, a better message, a better decision.</div>
+          <div class="quote-by">— Ishan Rizwan</div>
+        </div>
+
+        <div class="mini-stats reveal">
+          <div class="mini">
+            <div class="k">US</div>
+            <div class="v">Market Exposure</div>
+          </div>
+          <div class="mini">
+            <div class="k">B2B</div>
+            <div class="v">Lead Generation</div>
+          </div>
+          <div class="mini">
+            <div class="k">Analytics</div>
+            <div class="v">Research Mindset</div>
+          </div>
+          <div class="mini">
+            <div class="k">Creative</div>
+            <div class="v">Memoky Home Work</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label reveal">Professional Journey</div>
+    <h2 class="section-title reveal">Work experience across <span>freelance marketing,</span> US-focused SaaS, outreach, and operational leadership.</h2>
+
+    <div class="exp-grid">
+      <article class="exp-card reveal">
+        <div class="exp-head">
+          <div class="exp-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+          <div>
+            <div class="exp-company">Memoky Home</div>
+            <div class="exp-role">Freelance Marketing / Operations Specialist</div>
+            <div class="exp-period">Feb 2025 – Jul 2025 · Remote · Client: Jacob</div>
+          </div>
+        </div>
+        <ul class="bullets">
+          <li>Created Instagram posts, story/highlight creatives, and promotional visuals to support brand storytelling and seasonal offers.</li>
+          <li>Designed email marketing content focused on discounts, promotions, and clear offer communication.</li>
+          <li>Produced and refined short-form reel edits for social media, balancing brand tone, pacing, and visibility.</li>
+          <li>Coordinated directly with Jacob on content planning, asset delivery, and day-to-day operational support.</li>
+          <li>Helped keep marketing execution organized so campaign ideas moved smoothly from concept to delivery.</li>
+        </ul>
+      </article>
+
+      <article class="exp-card reveal">
+        <div class="exp-head">
+          <div class="exp-icon"><i class="fa-solid fa-people-group"></i></div>
+          <div>
+            <div class="exp-company">ValleyPoint Technologies</div>
+            <div class="exp-role">Operations / Business Development Team Lead</div>
+            <div class="exp-period">Feb 2024 – Jan 2025 · Chennai</div>
+          </div>
+        </div>
+        <ul class="bullets">
+          <li>Managed client accounts as the primary liaison between US clients and internal teams, improving communication efficiency and driving B2B sales growth.</li>
+          <li>Optimized team structure and profitability by hiring and managing interns and delegating work across outreach and operations workflows.</li>
+          <li>Supported cross-functional coordination so leadership could move faster on client needs, accountability, and execution quality.</li>
+        </ul>
+      </article>
+
+      <article class="exp-card reveal">
+        <div class="exp-head">
+          <div class="exp-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <div>
+            <div class="exp-company">ValleyPoint Technologies</div>
+            <div class="exp-role">Business Development Executive</div>
+            <div class="exp-period">Jul 2023 – Feb 2024 · Chennai</div>
+          </div>
+        </div>
+        <ul class="bullets">
+          <li>Conducted sales calls and managed client accounts to enhance client satisfaction.</li>
+          <li>Developed targeted email marketing campaigns that improved outreach effectiveness.</li>
+          <li>Successfully optimized sales funnels, resulting in increased conversion rates.</li>
+          <li>Worked closely with internal teams to keep outbound activity aligned with operational priorities and client expectations.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="recommendation">
+  <div class="section-inner">
+    <div class="section-label reveal">Testimonial</div>
+    <h2 class="section-title reveal">One strong reference from <span>Jacob Iskhakov</span> and the Memoky network.</h2>
+
+    <div class="rec-wrap">
+      <div class="rec-hero reveal">
+        <div class="eyebrow">LinkedIn Recommendation</div>
+        <div class="rec-text">I had the pleasure of working with Ishan and was consistently impressed by his energy, ambition, and eagerness to contribute. He brought a contagious enthusiasm to every project he undertook and paired it with a sharp intellect and a genuine desire to be helpful.</div>
+        <div class="rec-author">— Jacob Iskhakov · CEO at Sit Down NY / Memoky, New York</div>
+      </div>
+
+      <div class="rec-panel reveal">
+        <h3>Why this matters</h3>
+        <p>
+          This recommendation helps recruiters see how Ishan shows up in real work: proactive, easy to work with, and dependable across projects. Combined with the resume and the Memoky Home creative samples, it creates a fuller picture of capability.
+        </p>
+        <div class="badge-line">
+          <span class="chip">Proactive</span>
+          <span class="chip">Team Player</span>
+          <span class="chip">Sharp Problem Solver</span>
+          <span class="chip">Client Friendly</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label reveal">Skills</div>
+    <h2 class="section-title reveal">A mix of <span>research, operations, marketing execution,</span> and presentation capability.</h2>
+
+    <div class="skills-layout">
+      <div>
+        <div class="skill-group reveal">
+          <div class="skill-group-title"><i class="fa-solid fa-briefcase"></i> Core Strengths</div>
+          <ul class="skill-list">
+            <li>Team Management and intern coordination across outreach and operations workflows</li>
+            <li>B2B Prospecting, client relations, and account handling for US-focused SaaS growth</li>
+            <li>Outbound lead generation, cold calling, and sales funnel improvement</li>
+            <li>Market research support, buyer persona understanding, and stakeholder coordination</li>
+            <li>Marketing creatives, email campaign content, and short-form reel execution</li>
+            <li>Presentation building, reporting, and leadership-ready communication</li>
+          </ul>
+        </div>
+
+        <div class="skill-group reveal">
+          <div class="skill-group-title"><i class="fa-solid fa-screwdriver-wrench"></i> Tools & Platforms</div>
+          <div class="tool-tags">
+            <span class="tool-tag">Power BI</span>
+            <span class="tool-tag">KNIME Analytics Platform</span>
+            <span class="tool-tag">Microsoft Excel</span>
+            <span class="tool-tag">Presentations</span>
+            <span class="tool-tag">Email Workflows</span>
+            <span class="tool-tag">Cold Calling</span>
+            <span class="tool-tag">Market Research</span>
+            <span class="tool-tag">Social Content</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-box reveal">
+        <div class="eyebrow">What this profile shows</div>
+        <h3>Research-first, execution-aware, and creative enough to show work.</h3>
+        <p>
+          The resume gives a strong foundation in analytics, outreach, and team leadership. The portfolio adds proof of content execution through Memoky Home social creatives and reels, which helps position the profile for research, growth, marketing operations, and content-support roles.
+        </p>
+        <div class="cert-list">
+          <div class="cert-item">
+            <i class="fa-solid fa-check"></i>
+            <div><strong>US market exposure</strong><br/>Good fit for outbound, SDR, research, and client-facing roles.</div>
+          </div>
+          <div class="cert-item">
+            <i class="fa-solid fa-check"></i>
+            <div><strong>Leadership experience</strong><br/>Team lead work shows responsibility and coordination ability.</div>
+          </div>
+          <div class="cert-item">
+            <i class="fa-solid fa-check"></i>
+            <div><strong>Creative samples included</strong><br/>Images and reels are visible directly on the main page.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="section-inner">
+    <div class="section-label reveal">Education</div>
+    <h2 class="section-title reveal">Academic foundation that supports <span>research, operations,</span> and strategic marketing.</h2>
+
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date"><i class="fa-solid fa-calendar-days"></i> Jul 2025 – May 2027</div>
+        <h3 class="timeline-title">PGDM (MBA) — Marketing &amp; Analytics</h3>
+        <div class="timeline-org">ISBR Business School, Bengaluru</div>
+        <div class="timeline-detail">
+          Relevant coursework includes Marketing Research &amp; Consumer Insights, Strategic Marketing Management, STP Framework, and Brand Management &amp; Brand Equity.
+        </div>
+        <div class="course-tags">
+          <span class="course-tag">Marketing Research</span>
+          <span class="course-tag">Consumer Insights</span>
+          <span class="course-tag">STP</span>
+          <span class="course-tag">Brand Management</span>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date"><i class="fa-solid fa-calendar-days"></i> Jul 2020 – Apr 2023</div>
+        <h3 class="timeline-title">Bachelor’s in Computer Applications</h3>
+        <div class="timeline-org">The New College, University of Madras, Chennai</div>
+        <div class="timeline-detail">
+          Built Python programming projects and led student tech workshops and events, strengthening my comfort with data, logic, and presentation.
+        </div>
+        <div class="course-tags">
+          <span class="course-tag">Python Projects</span>
+          <span class="course-tag">Workshops</span>
+          <span class="course-tag">Event Leadership</span>
+          <span class="course-tag">Logic &amp; Data</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label reveal">Contact</div>
+    <h2 class="section-title reveal">Open to <span>research, growth, outreach,</span> and creative marketing opportunities.</h2>
+
+    <div class="contact-grid">
+      <div class="contact-panel reveal">
+        <h3>Let’s connect.</h3>
+        <p>
+          If you are reviewing profiles for market research, business development, growth, marketing operations, or content-support work, this portfolio is meant to show both analytical depth and practical creative output.
+        </p>
+
+        <div class="contact-list">
+          <a class="contact-item" href="mailto:ishanrizwan@gmail.com">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <small>Email</small>
+              <span>ishanrizwan@gmail.com</span>
+            </div>
+          </a>
+          <a class="contact-item" href="tel:+917305420108">
+            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <small>Phone</small>
+              <span>7305420108</span>
+            </div>
+          </a>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <small>Location</small>
+              <span>Bengaluru, Karnataka, India</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-card reveal">
+        <h3>Resume download</h3>
+        <p>
+          Keep the PDF in the same folder as this HTML file so the button works when you upload the portfolio to GitHub Pages or any other host.
+        </p>
+        <div class="resume-links">
+          <a class="btn btn-primary" href="Ishan Rizwan MRA Resume.pdf" target="_blank" download><i class="fa-solid fa-file-pdf"></i> Download CV</a>
+          <a class="btn btn-light" href="#work"><i class="fa-solid fa-eye"></i> View Projects</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Ishan Rizwan · Market Research, Marketing Operations &amp; Analytics · Built in a brown editorial theme for recruiter-ready portfolio presentation
+</footer>
+
+<div class="modal" id="mediaModal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeMedia()" aria-label="Close preview">&times;</button>
+      <div class="modal-content">
+        <div class="modal-media" id="modalMedia"></div>
+        <div class="modal-meta">
+          <div class="eyebrow">Preview</div>
+          <h3 id="modalTitle">Media Preview</h3>
+          <p id="modalDesc"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    function toggleMenu() {
+      navLinks.classList.toggle('open');
+    }
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    revealEls.forEach(el => io.observe(el));
+
+    const modal = document.getElementById('mediaModal');
+    const modalMedia = document.getElementById('modalMedia');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+
+    function openMedia(type, src, title, desc) {
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+      modalMedia.innerHTML = '';
+
+      if (type === 'image') {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = title;
+        img.style.objectFit = 'contain';
+        img.style.background = '#100b07';
+        modalMedia.appendChild(img);
+      } else {
+        const vid = document.createElement('video');
+        vid.src = src;
+        vid.controls = true;
+        vid.autoplay = true;
+        vid.playsInline = true;
+        vid.style.objectFit = 'contain';
+        vid.style.background = '#100b07';
+        modalMedia.appendChild(vid);
+      }
+
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeMedia() {
+      const video = modalMedia.querySelector('video');
+      if (video) {
+        video.pause();
+        video.removeAttribute('src');
+        video.load();
+      }
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      modalMedia.innerHTML = '';
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeMedia();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMedia();
+    });
+  </script>
+</body>
+</html>
